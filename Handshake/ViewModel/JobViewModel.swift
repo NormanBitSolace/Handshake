@@ -15,8 +15,8 @@ extension JobViewModel {
         let formatter = NumberFormatter()
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
-        if let salaryDouble = Double(model.salary),
-            let formattedSalary = formatter.string(from: salaryDouble as NSNumber) {
+        formatter.maximumFractionDigits = 0
+        if let formattedSalary = formatter.string(from: floor(model.salary) as NSNumber) {
             salary = "\(formattedSalary)"
         } else {
             salary = "Unknown"

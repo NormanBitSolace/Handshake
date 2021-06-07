@@ -9,6 +9,7 @@ struct JobListView: View {
                 ForEach(viewModel.jobViewModels, id: \.id) { model in
                     JobRowView(model: model)
                 }
+                .padding()
             }
             .padding()
             .navigationTitle("Jobs")

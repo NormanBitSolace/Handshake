@@ -3,10 +3,10 @@ import Foundation
 struct Recruiter: Codable, Equatable, Hashable {
     let firstName: String
     let lastName: String
-    let emailAddress: String
+    let email: String
 
     enum CodingKeys: String, CodingKey {
-        case firstName, lastName, emailAddress
-//        case email = "emailAddress"
+        case firstName, lastName
+        case email = "emailAddress"
     }
 }

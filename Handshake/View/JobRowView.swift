@@ -13,7 +13,7 @@ struct JobRowView: View {
             Text("Recuriter: \(model.recruiter.firstName) \(model.recruiter.lastName)")
                 .font(.caption2)
            VStack(alignment: .leading) {
-                Text("\(model.recruiter.emailAddress)")
+                Text("\(model.recruiter.email)")
             }
             .font(.caption2)
             .foregroundColor(.secondary)
