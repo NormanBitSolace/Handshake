@@ -1,2 +1,2 @@
 # Handshake
-On-site interview scaffolding
+Scaffolding for on-site interview with Handshake. 
