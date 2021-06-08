@@ -26,7 +26,20 @@
 		20BED685266DA51700B9F88D /* TestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED684266DA51700B9F88D /* TestApiService.swift */; };
 		20BED687266DA8E700B9F88D /* JobRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED686266DA8E700B9F88D /* JobRowView.swift */; };
 		20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED688266DA92B00B9F88D /* PreviewModel.swift */; };
+		20EED81F266EA8F300F4A5E5 /* CreateJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED81E266EA8F300F4A5E5 /* CreateJobView.swift */; };
+		20EED821266EA97700F4A5E5 /* CreateJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED820266EA97700F4A5E5 /* CreateJobViewModel.swift */; };
+		20EED829266EB4D500F4A5E5 /* HandshakeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED828266EB4D500F4A5E5 /* HandshakeTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		20EED82B266EB4D500F4A5E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 20BED64E266D8FEA00B9F88D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 20BED655266D8FEA00B9F88D;
+			remoteInfo = Handshake;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		20BED656266D8FEA00B9F88D /* Handshake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handshake.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,10 +64,22 @@
 		20BED686266DA8E700B9F88D /* JobRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRowView.swift; sourceTree = "<group>"; };
 		20BED688266DA92B00B9F88D /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
 		20DD5056266E7C1900651574 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		20EED81E266EA8F300F4A5E5 /* CreateJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobView.swift; sourceTree = "<group>"; };
+		20EED820266EA97700F4A5E5 /* CreateJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJobViewModel.swift; sourceTree = "<group>"; };
+		20EED826266EB4D500F4A5E5 /* HandshakeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HandshakeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		20EED828266EB4D500F4A5E5 /* HandshakeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandshakeTests.swift; sourceTree = "<group>"; };
+		20EED82A266EB4D500F4A5E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		20BED653266D8FEA00B9F88D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20EED823266EB4D500F4A5E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -69,6 +94,7 @@
 			children = (
 				20DD5056266E7C1900651574 /* README.md */,
 				20BED658266D8FEA00B9F88D /* Handshake */,
+				20EED827266EB4D500F4A5E5 /* HandshakeTests */,
 				20BED657266D8FEA00B9F88D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -77,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				20BED656266D8FEA00B9F88D /* Handshake.app */,
+				20EED826266EB4D500F4A5E5 /* HandshakeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +137,7 @@
 		20BED668266D927600B9F88D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				20EED81E266EA8F300F4A5E5 /* CreateJobView.swift */,
 				20BED65B266D8FEA00B9F88D /* ContentView.swift */,
 				20BED669266D929000B9F88D /* JobListView.swift */,
 				20BED686266DA8E700B9F88D /* JobRowView.swift */,
@@ -131,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				20BED674266D951F00B9F88D /* JobViewModel.swift */,
+				20EED820266EA97700F4A5E5 /* CreateJobViewModel.swift */,
 				20BED676266D955600B9F88D /* AppViewModel.swift */,
 			);
 			path = ViewModel;
@@ -146,6 +175,15 @@
 				20BED684266DA51700B9F88D /* TestApiService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		20EED827266EB4D500F4A5E5 /* HandshakeTests */ = {
+			isa = PBXGroup;
+			children = (
+				20EED828266EB4D500F4A5E5 /* HandshakeTests.swift */,
+				20EED82A266EB4D500F4A5E5 /* Info.plist */,
+			);
+			path = HandshakeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +206,24 @@
 			productReference = 20BED656266D8FEA00B9F88D /* Handshake.app */;
 			productType = "com.apple.product-type.application";
 		};
+		20EED825266EB4D500F4A5E5 /* HandshakeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20EED82D266EB4D500F4A5E5 /* Build configuration list for PBXNativeTarget "HandshakeTests" */;
+			buildPhases = (
+				20EED822266EB4D500F4A5E5 /* Sources */,
+				20EED823266EB4D500F4A5E5 /* Frameworks */,
+				20EED824266EB4D500F4A5E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				20EED82C266EB4D500F4A5E5 /* PBXTargetDependency */,
+			);
+			name = HandshakeTests;
+			productName = HandshakeTests;
+			productReference = 20EED826266EB4D500F4A5E5 /* HandshakeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -179,6 +235,10 @@
 				TargetAttributes = {
 					20BED655266D8FEA00B9F88D = {
 						CreatedOnToolsVersion = 12.5;
+					};
+					20EED825266EB4D500F4A5E5 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 20BED655266D8FEA00B9F88D;
 					};
 				};
 			};
@@ -196,6 +256,7 @@
 			projectRoot = "";
 			targets = (
 				20BED655266D8FEA00B9F88D /* Handshake */,
+				20EED825266EB4D500F4A5E5 /* HandshakeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -210,6 +271,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20EED824266EB4D500F4A5E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -219,6 +287,7 @@
 			files = (
 				20BED67A266D95F900B9F88D /* AppLogic.swift in Sources */,
 				20BED675266D951F00B9F88D /* JobViewModel.swift in Sources */,
+				20EED81F266EA8F300F4A5E5 /* CreateJobView.swift in Sources */,
 				20BED65C266D8FEA00B9F88D /* ContentView.swift in Sources */,
 				20BED677266D955600B9F88D /* AppViewModel.swift in Sources */,
 				20BED671266D937D00B9F88D /* Recruiter.swift in Sources */,
@@ -232,12 +301,29 @@
 				20BED66A266D929000B9F88D /* JobListView.swift in Sources */,
 				20BED680266D97B100B9F88D /* NetworkError.swift in Sources */,
 				20BED66F266D937300B9F88D /* Employer.swift in Sources */,
+				20EED821266EA97700F4A5E5 /* CreateJobViewModel.swift in Sources */,
 				20BED66C266D933600B9F88D /* Job.swift in Sources */,
 				20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		20EED822266EB4D500F4A5E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20EED829266EB4D500F4A5E5 /* HandshakeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		20EED82C266EB4D500F4A5E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 20BED655266D8FEA00B9F88D /* Handshake */;
+			targetProxy = 20EED82B266EB4D500F4A5E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		20BED663266D8FEB00B9F88D /* Debug */ = {
@@ -400,6 +486,46 @@
 			};
 			name = Release;
 		};
+		20EED82E266EB4D500F4A5E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BGR2CU5KFK;
+				INFOPLIST_FILE = HandshakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = blacklabs.HandshakeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Handshake.app/Handshake";
+			};
+			name = Debug;
+		};
+		20EED82F266EB4D500F4A5E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BGR2CU5KFK;
+				INFOPLIST_FILE = HandshakeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = blacklabs.HandshakeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Handshake.app/Handshake";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -417,6 +543,15 @@
 			buildConfigurations = (
 				20BED666266D8FEB00B9F88D /* Debug */,
 				20BED667266D8FEB00B9F88D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20EED82D266EB4D500F4A5E5 /* Build configuration list for PBXNativeTarget "HandshakeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				20EED82E266EB4D500F4A5E5 /* Debug */,
+				20EED82F266EB4D500F4A5E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

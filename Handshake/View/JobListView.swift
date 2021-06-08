@@ -2,28 +2,49 @@ import SwiftUI
 
 struct JobListView: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @State private var isEditing = false
 
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.jobViewModels, id: \.id) { model in
-                    JobRowView(model: model)
-                }
-                .padding()
+        List {
+            ForEach(viewModel.jobViewModels, id: \.id) { model in
+                JobRowView(model: model)
+                    .onTapGesture {
+                        isEditing = true
+                        viewModel.showUpdateJobPublisher.send(model)
+                    }
             }
+            .onDelete(perform: removeItems)
             .padding()
-            .navigationTitle("Jobs")
-            .navigationBarItems(trailing: fetchButton)
         }
-    }
-    
-    private var fetchButton: some View {
-        Button(action: {
-            viewModel.getJobsPublisher.send(())
-        }, label: {
-            Image(systemName: "goforward")
+        .padding()
+        .navigationTitle("Jobs")
+        .navigationBarItems(trailing: addButton)
+        .sheet(isPresented: $viewModel.showCreateJob, content: {
+            if let createJobViewModel = viewModel.createJobViewModel {
+                NavigationView {
+                    CreateJobView(isEditing: isEditing)
+                        .environmentObject(createJobViewModel)
+                }
+            }
         })
     }
+    
+    private var addButton: some View {
+        Button(action: {
+            viewModel.showCreateJobPublisher.send(())
+        }, label: {
+            Image(systemName: "plus")
+        })
+    }
+
+    private func removeItems(at offsets: IndexSet) {
+        //  TODO remove from viewModel.jobViewModels and subscribe to those changes to update backend e.g. viewModel.jobViewModels.remove(atOffsets: offsets)
+        for offset in offsets {
+            let model = viewModel.jobViewModels[offset]
+            viewModel.deleteJobPublisher.send(model.id)
+        }
+    }
+
 }
 
 struct JobListView_Previews: PreviewProvider {
