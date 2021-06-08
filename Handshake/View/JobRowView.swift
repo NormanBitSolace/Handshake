@@ -1,32 +1,37 @@
 import SwiftUI
 
 struct JobRowView: View {
-    let model: JobViewModel
-    
+    @State var model: JobViewModel
+    @EnvironmentObject var viewModel: AppViewModel
+
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(model.title)")
-                .font(.headline)
-                .bold()
-            Text("Salary: \(model.salary)")
-                .font(.body)
-            Text("Recuriter: \(model.recruiter.firstName) \(model.recruiter.lastName)")
-                .font(.caption2)
-           VStack(alignment: .leading) {
-                Text("\(model.recruiter.emailAddress)")
+            HStack {
+                Image(systemName: "photo")
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(height: 50)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("\(model.title)")
+                            .font(.title)
+                            .font(.system(size: 20))
+                            .minimumScaleFactor(0.01)
+                            .lineLimit(1)
+                        Spacer()
+
+                        Image(systemName: model.isFavorited ? "star.fill" : "star")
+                            .onTapGesture {
+                                model.isFavorited.toggle()
+                                viewModel.postJobFavoritePublisher.send(model)
+                            }
+                    }
+                    Text("\(model.employer.name)")
+                        .font(.headline)
+                }
+
             }
-            .font(.caption2)
-            .foregroundColor(.secondary)
-            .padding(.leading)
-            Text("Employer: \(model.employer.name)")
-                .font(.caption2)
-           VStack(alignment: .leading) {
-                Text("\(model.employer.address)")
-                Text("\(model.employer.description)")
-            }
-            .font(.caption2)
-            .foregroundColor(.secondary)
-            .padding(.leading)
+            .padding()
         }
     }
 }

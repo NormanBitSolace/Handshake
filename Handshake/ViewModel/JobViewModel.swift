@@ -6,6 +6,7 @@ struct JobViewModel {
     let salary: String
     let employer: Employer
     let recruiter: Recruiter
+    var isFavorited: Bool
 }
 
 extension JobViewModel {
@@ -23,5 +24,6 @@ extension JobViewModel {
         }
         self.employer = model.employer
         self.recruiter = model.recruiter
+        self.isFavorited = model.isFavorited
     }
 }

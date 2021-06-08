@@ -30,5 +30,14 @@ final class AppLogic: ObservableObject {
                 self.service?.getJobs()
             }
             .store(in: &subscriptions)
+
+
+        viewModel.postJobFavoritePublisher
+            .sink { job in
+                if let index = self.viewModel.jobViewModels.firstIndex(where: { $0.id == job.id }) {
+                    self.viewModel.jobViewModels[index] = job
+                }
+            }
+            .store(in: &subscriptions)
     }
 }

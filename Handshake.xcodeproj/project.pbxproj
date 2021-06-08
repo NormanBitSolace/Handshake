@@ -26,6 +26,7 @@
 		20BED685266DA51700B9F88D /* TestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED684266DA51700B9F88D /* TestApiService.swift */; };
 		20BED687266DA8E700B9F88D /* JobRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED686266DA8E700B9F88D /* JobRowView.swift */; };
 		20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED688266DA92B00B9F88D /* PreviewModel.swift */; };
+		20EED837266FE63700F4A5E5 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED836266FE63700F4A5E5 /* JobDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		20BED686266DA8E700B9F88D /* JobRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRowView.swift; sourceTree = "<group>"; };
 		20BED688266DA92B00B9F88D /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
 		20DD5056266E7C1900651574 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		20EED836266FE63700F4A5E5 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				20BED65B266D8FEA00B9F88D /* ContentView.swift */,
+				20EED836266FE63700F4A5E5 /* JobDetailView.swift */,
 				20BED669266D929000B9F88D /* JobListView.swift */,
 				20BED686266DA8E700B9F88D /* JobRowView.swift */,
 			);
@@ -232,6 +235,7 @@
 				20BED66A266D929000B9F88D /* JobListView.swift in Sources */,
 				20BED680266D97B100B9F88D /* NetworkError.swift in Sources */,
 				20BED66F266D937300B9F88D /* Employer.swift in Sources */,
+				20EED837266FE63700F4A5E5 /* JobDetailView.swift in Sources */,
 				20BED66C266D933600B9F88D /* Job.swift in Sources */,
 				20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */,
 			);

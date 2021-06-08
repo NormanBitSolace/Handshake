@@ -6,7 +6,7 @@ final class NetworkApiService: ApiService {
     let jobsPublisher = PassthroughSubject<[Job], Never>()
 
     func getJobs() {
-        let url = URL(string: "https://ios-interview.joinhandshake-internal.com/jobs")!
+        let url = URL(string: "https://ios-interview.joinhandshake-internal.com/jobs?username=nbasham")!
         //  npm json-server http://localhost:3000/jobs
         api.get(url: url) { (result: Result<[Job], NetworkError>) in
             switch result {
@@ -17,4 +17,22 @@ final class NetworkApiService: ApiService {
             }
         }
     }
+
+    func setJobFavorite(job: JobViewModel) {
+        struct Favorite: Codable {
+            let id: Int
+            let isFavorited: Bool
+            let username: String
+        }
+        let url = URL(string: "https://ios-interview.joinhandshake-internal.com/jobs")!
+        api.post(url: url, model: Favorite(id: job.id, isFavorited: job.isFavorited, username: "nbasham")) { (result: Result<Favorite, NetworkError>) in
+            switch result {
+                case .success(_):
+                    print("Successfully set favoited.")
+                case .failure(let error):
+                    print("Failed setting favoited \(error).")
+            }
+        }
+    }
+
 }

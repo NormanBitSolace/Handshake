@@ -1,10 +1,3 @@
-//
-//  HandshakeApp.swift
-//  Handshake
-//
-//  Created by Norman Basham on 6/6/21.
-//
-
 import SwiftUI
 
 @main

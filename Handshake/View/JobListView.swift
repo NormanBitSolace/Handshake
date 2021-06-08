@@ -7,30 +7,31 @@ struct JobListView: View {
         ScrollView {
             LazyVStack {
                 ForEach(viewModel.jobViewModels, id: \.id) { model in
-                    JobRowView(model: model)
+                    NavigationLink(
+                        destination:
+                            JobDetailView(job: model)
+                                .environmentObject(viewModel)
+                        ,
+                        label: {
+                            JobRowView(model: model)
+                        })
                 }
             }
             .padding()
             .navigationTitle("Jobs")
-            .navigationBarItems(trailing: fetchButton)
         }
-    }
-    
-    private var fetchButton: some View {
-        Button(action: {
+        .onAppear {
             viewModel.getJobsPublisher.send(())
-        }, label: {
-            Image(systemName: "goforward")
-        })
-    }
-}
-
-struct JobListView_Previews: PreviewProvider {
-    static let app = AppLogic(service: TestApiService())
-    static var previews: some View {
-        NavigationView {
-            JobListView()
-                .environmentObject(app.viewModel)
         }
     }
-}
+ }
+//
+//struct JobListView_Previews: PreviewProvider {
+//    static let app = AppLogic(service: TestApiService())
+//    static var previews: some View {
+//        NavigationView {
+//            JobListView()
+//                .environmentObject(app.viewModel)
+//        }
+//    }
+//}
