@@ -15,3 +15,13 @@ extension Job {
     }
 }
 
+extension Sequence where Element == Job {
+
+    var uniqueEmployers: [Employer] {
+        Array(Set(self.map { $0.employer }))
+    }
+
+    var uniqueRecruiters: [Recruiter] {
+        Array(Set(self.map { $0.recruiter }))
+    }
+}

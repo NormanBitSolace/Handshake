@@ -24,7 +24,7 @@ struct JobListView: View {
         })
     }
 }
-
+/*
 struct JobListView_Previews: PreviewProvider {
     static let app = AppLogic(service: TestApiService())
     static var previews: some View {
@@ -34,3 +34,4 @@ struct JobListView_Previews: PreviewProvider {
         }
     }
 }
+*/

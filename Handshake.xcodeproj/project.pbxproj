@@ -26,6 +26,9 @@
 		20BED685266DA51700B9F88D /* TestApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED684266DA51700B9F88D /* TestApiService.swift */; };
 		20BED687266DA8E700B9F88D /* JobRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED686266DA8E700B9F88D /* JobRowView.swift */; };
 		20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED688266DA92B00B9F88D /* PreviewModel.swift */; };
+		20EED831266EFDD400F4A5E5 /* Jobv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED830266EFDD400F4A5E5 /* Jobv2.swift */; };
+		20EED833266EFDFF00F4A5E5 /* Employerv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED832266EFDFF00F4A5E5 /* Employerv2.swift */; };
+		20EED835266EFE0B00F4A5E5 /* Recruiterv2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED834266EFE0B00F4A5E5 /* Recruiterv2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		20BED686266DA8E700B9F88D /* JobRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRowView.swift; sourceTree = "<group>"; };
 		20BED688266DA92B00B9F88D /* PreviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewModel.swift; sourceTree = "<group>"; };
 		20DD5056266E7C1900651574 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		20EED830266EFDD400F4A5E5 /* Jobv2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jobv2.swift; sourceTree = "<group>"; };
+		20EED832266EFDFF00F4A5E5 /* Employerv2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employerv2.swift; sourceTree = "<group>"; };
+		20EED834266EFE0B00F4A5E5 /* Recruiterv2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recruiterv2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +127,11 @@
 			isa = PBXGroup;
 			children = (
 				20BED66B266D933600B9F88D /* Job.swift */,
+				20EED830266EFDD400F4A5E5 /* Jobv2.swift */,
 				20BED66E266D937300B9F88D /* Employer.swift */,
+				20EED832266EFDFF00F4A5E5 /* Employerv2.swift */,
 				20BED670266D937D00B9F88D /* Recruiter.swift */,
+				20EED834266EFE0B00F4A5E5 /* Recruiterv2.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,15 +227,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				20BED67A266D95F900B9F88D /* AppLogic.swift in Sources */,
+				20EED831266EFDD400F4A5E5 /* Jobv2.swift in Sources */,
 				20BED675266D951F00B9F88D /* JobViewModel.swift in Sources */,
 				20BED65C266D8FEA00B9F88D /* ContentView.swift in Sources */,
 				20BED677266D955600B9F88D /* AppViewModel.swift in Sources */,
+				20EED835266EFE0B00F4A5E5 /* Recruiterv2.swift in Sources */,
 				20BED671266D937D00B9F88D /* Recruiter.swift in Sources */,
 				20BED673266D94E300B9F88D /* AppState.swift in Sources */,
 				20BED67C266D966300B9F88D /* ApiService.swift in Sources */,
 				20BED685266DA51700B9F88D /* TestApiService.swift in Sources */,
 				20BED67E266D973A00B9F88D /* NetworkApiService.swift in Sources */,
 				20BED687266DA8E700B9F88D /* JobRowView.swift in Sources */,
+				20EED833266EFDFF00F4A5E5 /* Employerv2.swift in Sources */,
 				20BED683266D9A6100B9F88D /* JsonApi.swift in Sources */,
 				20BED65A266D8FEA00B9F88D /* HandshakeApp.swift in Sources */,
 				20BED66A266D929000B9F88D /* JobListView.swift in Sources */,
