@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct JobDetailView: View {
-    @State var job: JobViewModel
+    @Binding var job: JobViewModel
     @EnvironmentObject var viewModel: AppViewModel
 
     var body: some View {
@@ -14,8 +14,7 @@ struct JobDetailView: View {
                 Spacer()
                 Image(systemName: job.isFavorited ? "star.fill" : "star")
                     .onTapGesture {
-                        job.isFavorited.toggle()
-                        viewModel.postJobFavoritePublisher.send(job)
+                        viewModel.toggleFavoritePublisher.send(job.favorite)
                     }
             }
             .font(.title)
@@ -24,22 +23,30 @@ struct JobDetailView: View {
                 .font(.body)
                 .padding(.bottom)
             Text(job.employer.name)
-            Text(job.employer.address)
+                .bold()
                 .padding(.bottom)
-            Text(job.employer.description)
-            Text(job.recruiter.firstName)
+            Text(job.employer.address)
+                .font(.caption)
+                .padding(.bottom)
+            ScrollView {
+                Text(job.employer.description)
+                    .font(.caption)
+            }
+            HStack {
+                Text(job.recruiter.firstName)
+                Text(job.recruiter.lastName)
+                Text(job.recruiter.emailAddress)
+                    .underline()
+            }
+            .font(.caption)
         }
-//        .onReceive(location.$heading, perform: { heading in
-//            withAnimation(.easeInOut(duration: 1.0)) {
-//                self.angle = heading
-//            }
-//        })
+        .padding(.horizontal)
     }
 }
 
 
 struct JobDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        JobDetailView(job: JobViewModel.example)
+        JobDetailView(job: .constant(JobViewModel.example))
     }
 }

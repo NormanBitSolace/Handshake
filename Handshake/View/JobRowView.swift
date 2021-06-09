@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct JobRowView: View {
-    @State var model: JobViewModel
+    @Binding var model: JobViewModel
     @EnvironmentObject var viewModel: AppViewModel
 
     var body: some View {
@@ -22,8 +22,7 @@ struct JobRowView: View {
 
                         Image(systemName: model.isFavorited ? "star.fill" : "star")
                             .onTapGesture {
-                                model.isFavorited.toggle()
-                                viewModel.postJobFavoritePublisher.send(model)
+                                viewModel.toggleFavoritePublisher.send(model.favorite)
                             }
                     }
                     Text("\(model.employer.name)")
@@ -38,6 +37,6 @@ struct JobRowView: View {
 
 struct JobRowView_Previews: PreviewProvider {
     static var previews: some View {
-        JobRowView(model: JobViewModel.example)
+        JobRowView(model: .constant(JobViewModel.example))
     }
 }

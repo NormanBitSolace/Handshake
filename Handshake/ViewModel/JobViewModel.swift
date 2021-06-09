@@ -6,7 +6,27 @@ struct JobViewModel {
     let salary: String
     let employer: Employer
     let recruiter: Recruiter
-    var isFavorited: Bool
+    let isFavorited: Bool
+
+    func setFavorite(_ newFavorite: Bool) -> JobViewModel {
+        JobViewModel(id: id, title: title, salary: salary, employer: employer, recruiter: recruiter, isFavorited: newFavorite)
+    }
+}
+
+extension JobViewModel {
+    var favorite: Favorite {
+        Favorite(jobId: id, isFavorited: isFavorited)
+    }
+
+    var job: Job {
+        var amount: Decimal = 0
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let number = formatter.number(from: salary) {
+            amount = number.decimalValue
+        }
+        return Job(id: id, isFavorited: isFavorited, title: title, salary: "\(amount)", employer: employer, recruiter: recruiter)
+    }
 }
 
 extension JobViewModel {
@@ -17,7 +37,7 @@ extension JobViewModel {
         formatter.locale = Locale.current
         formatter.numberStyle = .currency
         if let salaryDouble = Double(model.salary),
-            let formattedSalary = formatter.string(from: salaryDouble as NSNumber) {
+           let formattedSalary = formatter.string(from: salaryDouble as NSNumber) {
             salary = "\(formattedSalary)"
         } else {
             salary = "Unknown"

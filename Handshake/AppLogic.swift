@@ -5,10 +5,8 @@ final class AppLogic: ObservableObject {
     @Published var state: AppState
     @Published var viewModel: AppViewModel
     private var subscriptions = Set<AnyCancellable>()
-    weak var service: ApiService?
 
-    init(service: ApiService) {
-        self.service = service
+    init(service: NetworkApiService) {
         state = AppState()
         viewModel = AppViewModel()
 
@@ -27,16 +25,36 @@ final class AppLogic: ObservableObject {
         //  Listens for a UI request for jobs and call service.getJobs()
         viewModel.getJobsPublisher
             .sink {
-                self.service?.getJobs()
+                service.getJobs()
             }
             .store(in: &subscriptions)
 
+        //  Listens for UI request to toggle a favorite and calls service.toggleFavorite
+        viewModel.toggleFavoritePublisher
+            .sink { favorite in
+                service.toggleFavorite(favorite: favorite)
+            }
+            .store(in: &subscriptions)
 
-        viewModel.postJobFavoritePublisher
-            .sink { job in
-                if let index = self.viewModel.jobViewModels.firstIndex(where: { $0.id == job.id }) {
-                    self.viewModel.jobViewModels[index] = job
-                }
+        //  Listens for server updates on favorite and updates the view model
+        service.updateFavoritePublisher
+            .receive(on: DispatchQueue.main)
+            .sink { favorite in
+                print("Server sent Favorite with isFavorited = \(favorite.isFavorited)")
+                if let index = self.viewModel.jobViewModels.firstIndex(where: { $0.id == favorite.jobId }) {
+//                    self.viewModel.objectWillChange.send()
+                    self.viewModel.jobViewModels[index] = self.viewModel.jobViewModels[index].setFavorite(favorite.isFavorited)
+                        print("Job at index \(index) isFavorited = \(self.viewModel.jobViewModels[index].isFavorited)")
+                    }
+            }
+            .store(in: &subscriptions)
+
+        //  Listens for view model jobs changes and updates cache
+        viewModel.$jobViewModels
+            .filter { $0.count > 0 }
+            .sink { jobViewModels in
+                let jobs = jobViewModels.map { $0.job }
+                service.cacheJobs(jobs: jobs)
             }
             .store(in: &subscriptions)
     }

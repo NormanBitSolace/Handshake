@@ -1,11 +1,10 @@
 import SwiftUI
 
 struct ContentView: View {
-    let service: ApiService
     @StateObject var app: AppLogic
 
     init() {
-        service = NetworkApiService()
+        let service = NetworkApiService()
         let app = AppLogic(service: service)
         _app = StateObject(wrappedValue: app)
     }
