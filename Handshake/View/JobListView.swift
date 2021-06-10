@@ -6,6 +6,7 @@ struct JobListView: View {
     var body: some View {
         List {
             ForEach(viewModel.jobViewModels.indices, id: \.self) { index in
+                let model: JobViewModel? = viewModel.jobViewModels[index]
                 NavigationLink(
                     destination:
                         JobDetailView(job: $viewModel.jobViewModels[index])
@@ -13,10 +14,16 @@ struct JobListView: View {
                     ,
                     label: {
                         JobRowView(model: $viewModel.jobViewModels[index])
+                            .onAppear {
+                                viewModel.requestJobsPublisher.send(model)
+                            }
                     })
             }
             .padding()
             .navigationTitle("Jobs")
+            if viewModel.isLoading {
+                Text("Loading")
+            }
         }
         .onAppear {
             viewModel.getJobsPublisher.send(())

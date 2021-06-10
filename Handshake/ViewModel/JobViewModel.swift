@@ -31,6 +31,7 @@ extension JobViewModel {
 
 extension JobViewModel {
     init(model: Job) {
+        print("JobViewModel init id: \(model.requireId)")
         self.id = model.requireId
         self.title = model.title
         let formatter = NumberFormatter()

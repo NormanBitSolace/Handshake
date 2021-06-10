@@ -25,7 +25,8 @@ final class AppLogic: ObservableObject {
         //  Listens for a UI request for jobs and call service.getJobs()
         viewModel.getJobsPublisher
             .sink {
-                service.getJobs()
+//                service.getJobs()
+                service.loadMoreJobs(existingJobs: self.state.jobs)
             }
             .store(in: &subscriptions)
 
@@ -55,6 +56,29 @@ final class AppLogic: ObservableObject {
             .sink { jobViewModels in
                 let jobs = jobViewModels.map { $0.job }
                 service.cacheJobs(jobs: jobs)
+            }
+            .store(in: &subscriptions)
+
+        //  Listens for view model jobs changes and updates cache
+        service.isLoadingPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { isLoading in
+                self.viewModel.isLoading = isLoading
+            }
+            .store(in: &subscriptions)
+
+        viewModel.requestJobsPublisher
+            .sink { job in
+                print("job id: \(job?.id ?? -1)")
+                guard let job = job else {
+                    service.loadMoreJobs(existingJobs: self.state.jobs)
+                    return
+                }
+                print("state jobs count: \(self.state.jobs.count)")
+                let thresholdIndex = self.state.jobs.index(self.state.jobs.endIndex, offsetBy: -5)
+                if self.state.jobs.firstIndex(where: { $0.id == job.id }) == thresholdIndex {
+                    service.loadMoreJobs(existingJobs: self.state.jobs)
+                }
             }
             .store(in: &subscriptions)
     }

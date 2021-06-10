@@ -4,8 +4,43 @@ import Combine
 final class NetworkApiService {
     let jobsPublisher = PassthroughSubject<[Job], Never>()
     let updateFavoritePublisher = PassthroughSubject<Favorite, Never>()
+    let isLoadingPublisher = PassthroughSubject<Bool, Never>()
     private let cache = NSCache<NSString, NSData>()
     private let cacheKey = NSString("cacheKey")
+    private let cacheJobs = false
+    /*@Published*/ var isLoadingPage = false
+    private var currentPage = 1
+
+    func loadMoreJobs(existingJobs: [Job]) {
+        guard !isLoadingPage else {
+            return
+        }
+
+        isLoadingPage = true
+        isLoadingPublisher.send(isLoadingPage)
+        if let cachedJobs = loadCachedJobs() {
+            jobsPublisher.send(cachedJobs)
+            print("Jobs cached returning saved jobs.")
+            return
+        }
+        print("No jobs cached hitting server.")
+        let url = URL(string: "http://localhost:3000/jobs?_page=1&username=nbasham")!
+//        let url = URL(string: "https://ios-interview.joinhandshake-internal.com/jobs?username=nbasham")!
+        //  npm json-server http://localhost:3000/jobs
+        get(url: url) { (result: Result<[Job], NetworkError>) in
+            switch result {
+                case .success(let model):
+                    self.currentPage += 1
+                    self.isLoadingPage = false
+                    self.isLoadingPublisher.send(self.isLoadingPage)
+                    self.cacheJobs(jobs: model)
+                    self.jobsPublisher.send(existingJobs + model)
+                case .failure(_):
+                    self.jobsPublisher.send([])
+                    self.jobsPublisher.send(existingJobs)
+            }
+        }
+    }
 
     func getJobs() {
         if let cachedJobs = loadCachedJobs() {
@@ -28,6 +63,7 @@ final class NetworkApiService {
     }
 
     func cacheJobs(jobs: [Job]) {
+        guard cacheJobs else { return }
         if let data = try? JSONEncoder().encode(jobs) {
             let nsdata = NSData(data: data)
             self.cache.setObject(nsdata, forKey: self.cacheKey)
@@ -40,6 +76,7 @@ final class NetworkApiService {
     }
 
     private func loadCachedJobs() -> [Job]? {
+        guard cacheJobs else { return nil }
         if let nsdata = cache.object(forKey: cacheKey) {
             let data = Data(nsdata)
             if let jobs = try? JSONDecoder().decode([Job].self, from: data) {
