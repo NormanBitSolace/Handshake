@@ -7,10 +7,11 @@ struct JobRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(systemName: "photo")
-                    .resizable()
-                    .aspectRatio(1, contentMode: .fit)
-                    .frame(height: 50)
+                AsyncImage(
+                    url: model.employerLogo
+                )
+                .aspectRatio(1, contentMode: .fit)
+                .frame(height: 50)
                 VStack(alignment: .leading) {
                     HStack {
                         Text("\(model.title)")

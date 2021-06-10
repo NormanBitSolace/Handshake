@@ -6,8 +6,7 @@ struct JobDetailView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Image(systemName: "photo")
-                .resizable()
+            AsyncImage(url: job.employerImage)
                 .frame(height: 100)
             HStack {
                 Text(job.title)

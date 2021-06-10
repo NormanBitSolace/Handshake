@@ -25,6 +25,8 @@
 		20BED689266DA92B00B9F88D /* PreviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BED688266DA92B00B9F88D /* PreviewModel.swift */; };
 		20EED837266FE63700F4A5E5 /* JobDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED836266FE63700F4A5E5 /* JobDetailView.swift */; };
 		20EED839267130D200F4A5E5 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED838267130D200F4A5E5 /* Favorite.swift */; };
+		20EED83B26729EB900F4A5E5 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED83A26729EB900F4A5E5 /* ImageLoader.swift */; };
+		20EED83D26729EE000F4A5E5 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EED83C26729EE000F4A5E5 /* AsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		20DD5056266E7C1900651574 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		20EED836266FE63700F4A5E5 /* JobDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobDetailView.swift; sourceTree = "<group>"; };
 		20EED838267130D200F4A5E5 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		20EED83A26729EB900F4A5E5 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		20EED83C26729EE000F4A5E5 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				20BED679266D95F900B9F88D /* AppLogic.swift */,
 				20BED672266D94E300B9F88D /* AppState.swift */,
 				20BED659266D8FEA00B9F88D /* HandshakeApp.swift */,
+				20EED83A26729EB900F4A5E5 /* ImageLoader.swift */,
+				20EED83C26729EE000F4A5E5 /* AsyncImage.swift */,
 				20BED65D266D8FEB00B9F88D /* Assets.xcassets */,
 				20BED66D266D935E00B9F88D /* Model */,
 				20BED65F266D8FEB00B9F88D /* Preview Content */,
@@ -224,7 +230,9 @@
 				20BED687266DA8E700B9F88D /* JobRowView.swift in Sources */,
 				20EED839267130D200F4A5E5 /* Favorite.swift in Sources */,
 				20BED65A266D8FEA00B9F88D /* HandshakeApp.swift in Sources */,
+				20EED83D26729EE000F4A5E5 /* AsyncImage.swift in Sources */,
 				20BED66A266D929000B9F88D /* JobListView.swift in Sources */,
+				20EED83B26729EB900F4A5E5 /* ImageLoader.swift in Sources */,
 				20BED680266D97B100B9F88D /* NetworkError.swift in Sources */,
 				20BED66F266D937300B9F88D /* Employer.swift in Sources */,
 				20EED837266FE63700F4A5E5 /* JobDetailView.swift in Sources */,

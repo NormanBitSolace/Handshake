@@ -7,6 +7,8 @@ struct JobViewModel {
     let employer: Employer
     let recruiter: Recruiter
     let isFavorited: Bool
+    var employerLogo: URL?
+    var employerImage: URL?
 
     func setFavorite(_ newFavorite: Bool) -> JobViewModel {
         JobViewModel(id: id, title: title, salary: salary, employer: employer, recruiter: recruiter, isFavorited: newFavorite)
@@ -45,5 +47,11 @@ extension JobViewModel {
         self.employer = model.employer
         self.recruiter = model.recruiter
         self.isFavorited = model.isFavorited
+        if let url = URL(string: employer.logo) {
+            employerLogo = url
+        }
+        if let url = URL(string: employer.image) {
+            employerImage = url
+        }
     }
 }
