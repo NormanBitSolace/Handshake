@@ -21,6 +21,7 @@ struct AsyncImage: View {
                     .resizable()
             } else {
                 placeholder
+                    .resizable()
             }
         }
     }
